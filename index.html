@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selamat Hari Raya Idul Fitri 🤍</title>
+    <meta name="description" content="Kartu ucapan Idul Fitri digital - Permohonan maaf lahir dan batin">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Dancing+Script:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ============ OPENING SCREEN ============ -->
+    <section id="opening" class="screen active">
+        <!-- Floating ornaments background -->
+        <div class="floating-elements" id="floatingElements"></div>
+
+        <!-- Crescent moon & stars -->
+        <div class="celestial">
+            <div class="crescent">🌙</div>
+            <div class="star star-1">✦</div>
+            <div class="star star-2">✧</div>
+            <div class="star star-3">✦</div>
+            <div class="star star-4">✧</div>
+            <div class="star star-5">✦</div>
+        </div>
+
+        <!-- Mosque silhouette -->
+        <div class="mosque-silhouette">
+            <svg viewBox="0 0 800 200" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="mosqueGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" style="stop-color:rgba(212,175,55,0.3)" />
+                        <stop offset="100%" style="stop-color:rgba(212,175,55,0.05)" />
+                    </linearGradient>
+                </defs>
+                <!-- Main dome -->
+                <ellipse cx="400" cy="120" rx="80" ry="60" fill="url(#mosqueGrad)" />
+                <rect x="320" y="120" width="160" height="80" fill="url(#mosqueGrad)" />
+                <!-- Left minaret -->
+                <rect x="250" y="60" width="20" height="140" fill="url(#mosqueGrad)" />
+                <ellipse cx="260" cy="60" rx="15" ry="20" fill="url(#mosqueGrad)" />
+                <!-- Right minaret -->
+                <rect x="530" y="60" width="20" height="140" fill="url(#mosqueGrad)" />
+                <ellipse cx="540" cy="60" rx="15" ry="20" fill="url(#mosqueGrad)" />
+                <!-- Small domes -->
+                <ellipse cx="300" cy="140" rx="30" ry="25" fill="url(#mosqueGrad)" />
+                <ellipse cx="500" cy="140" rx="30" ry="25" fill="url(#mosqueGrad)" />
+                <!-- Crescent on top -->
+                <text x="395" y="80" fill="rgba(212,175,55,0.5)" font-size="20">☪</text>
+            </svg>
+        </div>
+
+        <!-- Main content -->
+        <div class="opening-content">
+            <div class="ornament-top">❊ ✦ ❊</div>
+            <div class="bismillah">بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
+            <h1 class="main-greeting">
+                <span class="greeting-line">Selamat Hari Raya</span>
+                <span class="greeting-line highlight">Idul Fitri</span>
+                <span class="greeting-year">1 Syawal 1447 H</span>
+            </h1>
+            <div class="heart-divider">🤍</div>
+            <p class="subtitle">Mohon Maaf Lahir dan Batin</p>
+            <button id="openBtn" class="open-btn">
+                <span class="btn-icon">💌</span>
+                <span class="btn-text">Buka Pesan</span>
+                <span class="btn-shimmer"></span>
+            </button>
+            <div class="ornament-bottom">❊ ✦ ❊</div>
+        </div>
+    </section>
+
+    <!-- ============ MESSAGE SCREEN ============ -->
+    <section id="message" class="screen">
+        <div class="floating-elements" id="floatingElements2"></div>
+
+        <!-- Sparkle/Confetti canvas -->
+        <canvas id="confettiCanvas"></canvas>
+
+        <div class="message-container">
+            <div class="card">
+                <div class="card-ornament-top">✦ ☪ ✦</div>
+                <div class="card-header">
+                    <span class="to-label">Untuk bubuku sayang :),</span>
+                </div>
+                <div class="card-body">
+                    <p id="messageText" class="message-text"></p>
+                    <div id="cursor" class="typing-cursor">|</div>
+                </div>
+                <div class="card-footer" id="cardFooter" style="opacity: 0;">
+                    <div class="signature">
+                        <span class="from-text">Dengan cinta,</span>
+                        <!-- ===== EDIT NAMA DI SINI ===== -->
+                        <span class="from-name">Sincerely love, your duduu 🤍</span>
+                    </div>
+                    <button id="replayBtn" class="replay-btn">
+                        <span>🔄</span> Baca Ulang
+                    </button>
+                </div>
+                <div class="card-ornament-bottom">✦ ☪ ✦</div>
+            </div>
+        </div>
+
+        <!-- Back button -->
+        <button id="backBtn" class="back-btn" style="opacity: 0;">
+            ← Kembali
+        </button>
+    </section>
+
+    <!-- ============ MUSIC CONTROL ============ -->
+    <div class="music-control" id="musicControl">
+        <button id="musicBtn" class="music-btn" title="Play/Pause Musik">
+            <span class="music-icon">🔇</span>
+            <div class="music-waves">
+                <span></span><span></span><span></span>
+            </div>
+        </button>
+    </div>
+
+    <!-- Background Music (using a placeholder - replace with actual audio) -->
+    <!-- Menggunakan audio dari URL publik -->
+    <audio id="bgMusic" loop preload="auto">
+        <!-- ===== EDIT MUSIK DI SINI - Ganti src dengan nama file audio Anda ===== -->
+        <source src="lebaran2.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
